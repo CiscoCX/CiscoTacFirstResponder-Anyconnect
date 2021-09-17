@@ -2,7 +2,7 @@
 
 Cisco TAC First Responder script for Anyconnect.
 
-The hosted scripts streamline generation and transmission of diagnostic (DART) bundles from a user's computer to Cisco TAC.
+These hosted scripts streamline the generation and transmission of a diagnostic (DART) bundle from a user's computer directly to Cisco TAC.
 
 ## Collect a DART on Windows
 
@@ -74,4 +74,59 @@ Collection Complete!
 
 PS C:\Users\jyoungta>
 
+```
+
+## Collect a DART on MAC (Catalina and above)
+
+The script is written for zsh, the default shell for the `Terminal.app` (Since Mac OS Catalina). Have the user open the `Terminal.app` and then paste the following in (with the `cxdUsername` and `cxdToken` replaced with the values you received from the Cisco TAC Engineer)
+
+```zsh
+➜  ~ curl https://raw.githubusercontent.com/CiscoCX/CiscoTacFirstResponder-Anyconnect/main/anyconnect-mac.zsh | cxdUsername=611111111 cxdToken=mkDOLk2YO9SyuEkz zsh -s
+```
+
+Example Output:
+
+```
+➜  ~ curl https://raw.githubusercontent.com/CiscoCX/CiscoTacFirstResponder-Anyconnect/main/anyconnect-mac.zsh | cxdUsername=611111111 cxdToken=mkDOLk2YO9SyuEkz zsh -s
++-------------------------------------------------------------------------+
+| Welcome to the PowerShell Based Cisco AnyConnect DART Collection Script |
+|                                                                         |
+|  For issues with the collection script/process please file an issue at  |
+|   https://github.com/CiscoCX/CiscoTacFirstResponder-Anyconnect/issues   |
+|                                                                         |
++-------------------------------------------------------------------------+
+
+This script will initiate a collection of the Cisco AnyConnect DART Bundle and then upload it directly to Cisco TAC
+
+
+-------------------------------------------------------------------------------
+Found the dartcli program at /Applications/Cisco/Cisco AnyConnect DART.app/Contents/Resources/dartcli starting collection
+-------------------------------------------------------------------------------
+
+Cisco AnyConnect Diagnostic and Reporting Tool 4.10.01075 .
+
+Copyright (c) 2008 - 2021 Cisco Systems, Inc.
+All Rights Reserved.
+
+Bundle option selected: custom
+Bundle location: /Users/jyoungta/Desktop/DARTBundle_20210915_1705.zip
+
+Processing Posture application logs...              33%
+Processing Filter Configuration...                  40%
+Processing System Information...                    43%
+DART has finished...                               100%
+
+-------------------------------------------------------------------------------
+Finished collection!
+-------------------------------------------------------------------------------
+-------------------------------------------------------------------------------
+Attempting to upload the file '/Users/jyoungta/Desktop/DARTBundle_20210915_1705.zip' to the Cisco TAC case number '611111111'
+-------------------------------------------------------------------------------
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  8739  100  8739    0     0  10670      0 --:--:-- --:--:-- --:--:-- 10657
+-------------------------------------------------------------------------------
+Upload complete!
+-------------------------------------------------------------------------------
+➜  ~
 ```
