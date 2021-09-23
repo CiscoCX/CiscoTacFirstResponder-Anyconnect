@@ -81,7 +81,7 @@ PS C:\Users\jyoungta>
 The script is written for zsh, the default shell for the `Terminal.app` (Since Mac OS Catalina). Have the user open the `Terminal.app` and then paste the following in (with the `cxdUsername` and `cxdToken` replaced with the values you received from the Cisco TAC Engineer)
 
 ```zsh
-➜  ~ curl https://raw.githubusercontent.com/CiscoCX/CiscoTacFirstResponder-Anyconnect/main/anyconnect-mac.zsh | cxdUsername=611111111 cxdToken=mkDOLk2YO9SyuEkz zsh -s
+curl https://raw.githubusercontent.com/CiscoCX/CiscoTacFirstResponder-Anyconnect/main/anyconnect-mac.zsh | cxdUsername=611111111 cxdToken=mkDOLk2YO9SyuEkz zsh -s
 ```
 
 Example Output:
