@@ -30,7 +30,16 @@ function UploadFileToCisco() {
     echo "-------------------------------------------------------------------------------" >&2
     echo ""
     echo ""
-    curl --upload-file "$dartFilename" "https://$cxdUsername:$cxdToken@cxd.cisco.com/home/" > >(background_print)
+    curl --fail --upload-file "$dartFilename" "https://$cxdUsername:$cxdToken@cxd.cisco.com/home/" > >(background_print)
+    if [[ $? > 0 ]]
+    then
+        echo ""
+        echo ""
+        echo "Error:"
+        echo "Oh no! There was an error uploading the file.  Please double check the cxdUsername '$cxdUsername' "
+        echo "and cxdToken '$cxdToken' are what the TAC Engineer provided and the TAC Case is still open."
+        exit 1
+    fi
     echo ""
     echo ""
     echo "-------------------------------------------------------------------------------" >&2
