@@ -79,7 +79,7 @@ function CreateDartBundle() {
 
 
 # Validate that the username was passed into the script as a variable
-if [[ ! $cxdUsername =~ 6[[:digit:]]{8} ]]
+if [[ ! $cxdUsername =~ [67][[:digit:]]{8} ]]
 then
     echo "+-----------------------------------------------------------------------------+"
     echo "| ERROR:                                                                      |"
